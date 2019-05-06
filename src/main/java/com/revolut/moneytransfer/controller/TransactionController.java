@@ -31,6 +31,9 @@ public class TransactionController {
     }
 }
 
+/**
+ * Transaction success response
+ */
 class TransactionResponse {
     private boolean success;
 

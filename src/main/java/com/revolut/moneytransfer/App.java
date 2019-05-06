@@ -31,6 +31,9 @@ public class App extends AbstractModule {
 //        System.out.println(alice.getBalance());
 //        System.out.println(bob.getBalance());
 //
+        /**
+         * Api to transfer money between accounts
+         */
         app.post("/transaction/" , ctx -> {
 
             String obj = txnController.makeTransaction(ctx.formParam("sender"),
@@ -40,6 +43,9 @@ public class App extends AbstractModule {
             ctx.status(200);
         });
 
+        /**
+         * Api to fetch account details by accountId
+         */
         app.get("/account/:accountid" , ctx -> {
 
             String obj = accountController.getAccountDetails(ctx.pathParam("accountid"));

@@ -1,6 +1,7 @@
 package com.revolut.moneytransfer.controller;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.revolut.moneytransfer.model.Account;
 import com.revolut.moneytransfer.service.AccountService;
 import com.revolut.moneytransfer.utils.RevolutException;
@@ -34,7 +35,7 @@ public class AccountControllerTest {
     @Test
     public void getAccountDetailsTest() {
         when(accountService.getAccount(1l)).thenReturn(alice);
-        Assert.assertEquals(this.accountController.getAccountDetails("1"), new Gson().toJson(alice));
+        Assert.assertEquals(this.accountController.getAccountDetails("1"), new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create().toJson(alice));
 
     }
 
